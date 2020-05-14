@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>EDIT BOOK DETAILS</title> 
+{% endblock %}
+
+{% block body %}
+<h1 style="text-align:center;">BOOKS INFORMATION</h1>
+
+    <hr>
+    <h2 style="margin-left: 30px;">EDIT BOOK DETAILS:</h2>
+    <form action='/posts/edit/{{post.id}}' method='POST'style="font-size:130%; margin-left: 30px;" >
+    <p style = "margin-bottom: 1px;">
+    Title: <input type='text' name='title' id='title' value="{{post.title}}">
+	</p>
+    <br>
+    
+	Author: <input type='text' name='author' id='author' value="{{post.author}}">
+    <br>
+	
+	<p style = "margin-bottom: 1px;">
+    Summary: <input type='text' name='content' id='content' value="{{post.content}}">
+    </P>
+    <br>
+    
+	<input type='submit' value='SAVE' style="background-color:Green;font-family:Garamond;padding: 10px 27px;
+    text-align: center;text-decoration: none; color: LightGoldenRodYellow;font-weight: bold;display: inline-block;
+    font-size: 16px;margin: 4px 2px;cursor: pointer;">
+    </form>
+    <hr>
+{% endblock %}

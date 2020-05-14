@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Posts</title> 
+{% endblock %}
+
+{% block body %}
+<h1 style="text-align:center;">BOOKS INFORMATION</h1>
+
+    <hr>
+    <h2 style="margin-left: 30px;">ENTER DETAILS FOR NEW BOOK:</h2>
+    <form action='/posts' method='POST' style="font-size:130%; margin-left: 30px;" >
+       
+	<p style = "margin-bottom: 1px;"> 
+	Title: <input type='text' name='title' id='title'  ></p>
+    <br>
+    
+	Author: <input type='text' name='author' id='author'>
+	<br>
+		
+    <p style = "margin-bottom: 1px;">
+    Summary: <input type='text' name='content' id='content'>
+	</p>
+    <br>
+        
+	<input type='submit' value='SUBMIT' style="background-color:Green;font-family:Garamond;padding: 10px 27px;
+    text-align: center;text-decoration: none; color: LightGoldenRodYellow;font-weight: bold;display: inline-block;
+    font-size: 16px;margin: 4px 2px;cursor: pointer;">
+    </form>
+    <hr>
+
+    {% for post in posts %}
+  
+        <h2 style = "margin-bottom:1px;font-size:150%; margin-left: 30px;">{{ post.title }}</h2>
+	    {% if post.author %}
+        <h2 style = "font-size:150%; margin-left: 30px;margin-top: 0px; margin-bottom: 0px;">By: {{ post.author }}</h2>
+        {% else %}
+		<h2 style = "margin-top: 0px;font-size:150%; margin-left: 30px;">By: N/A</h2>
+        {% endif %}
+        
+        <h2 style = "margin-top: 0px;margin-bottom: 5px;font-size:150%; margin-left: 30px;font-weight: normal;">{{ post.content }}</h2>
+        <a href='/posts/delete/{{post.id}}'style="font-size:150%">Delete</a>
+        <a href='/posts/edit/{{post.id}}'style="font-size:150%">      Edit</a>
+		
+        <hr>
+    {% endfor%}
+
+{% endblock %}
